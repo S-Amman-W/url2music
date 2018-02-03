@@ -1,0 +1,33 @@
+div.App{
+  length:100%;
+  width:100%;
+
+  margin:0;
+  padding:0;
+
+  background-color:#3D0351;
+}
+
+h1{
+  margin:1vw;
+
+  color:white;
+
+  font-family:Montserrat;
+}
+
+h2{
+  margin:1vw;
+
+  color:white;
+
+  font-family:Montserrat;
+}
+
+p{
+  color:white;
+
+  margin:1vw;
+
+  font-family:Montserrat;
+}
