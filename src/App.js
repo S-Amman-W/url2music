@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Box from  './components/box.js';
+import URL from './components/url.js';
 class App extends Component {
 
   constructor(props) {

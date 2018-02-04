@@ -7,9 +7,9 @@ class URL extends Component {
   //
   // else if this.props.selectedState='playlists'
   // use jsx for this
-
+render() {
     return (
-<iframe src="https://www.youtube.com/watch?v=y6Sxv-sUYtM"></iframe>
+<iframe src="https://www.youtube.com/embed/y6Sxv-sUYtM"></iframe>
 
     );
   }
