@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import './App.css';
 import Box from  './components/box.js';
 import URL from './components/url.js';
@@ -8,6 +9,19 @@ class App extends Component {
   this.state = {
     selectedState: ''
   }
+
+
+  var config = {
+      apiKey: "AIzaSyBV4ISoX0keSocOpnIRNrpzYuvzkRN8TQ0",
+      authDomain: "url2sound.firebaseapp.com",
+     databaseURL: "https://url2sound.firebaseio.com",
+     projectId: "url2sound",
+     storageBucket: "",
+     messagingSenderId: "907970903449"
+ };
+
+  firebase.initializeApp(config);
+
 }
 
 saveURL = (e) => {
