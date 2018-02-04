@@ -84,6 +84,7 @@ class App extends Component {
             <input type="URL"  id="urlForm"  name="URL"/>
             <div class="URL"><button onChange={this.handleChange} onClick =  {() => {
               this.setState({selectedState: "urls"});
+              <br/>
             }}> Save Song </button></div>
           </form>
 
