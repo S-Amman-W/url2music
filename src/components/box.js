@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+let urlArray = []
 class Box extends Component {
   // this.props.selectedState == 'urls'
   //
@@ -12,12 +12,20 @@ class Box extends Component {
     this.state = {};
 }
   render() {
+          urlArray = [] 
     if (this.props.selectedState === 'urls') {
-      console.log("urls");
-    }
-    return (
-<div>{this.state.selectedState}</div>
+  console.log(this.props.URL)
+  for (var i = 0; i < this.props.URL.length; i++) {
+      urlArray.push(
+          <li>
+              {this.props.URL[i]}
+          </li>
+      )
+  }
 
+    }
+      return (
+ <div>{urlArray}</div>
     );
   }
 }

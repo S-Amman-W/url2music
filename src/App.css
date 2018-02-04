@@ -21,6 +21,7 @@ button {
   color: #84469A;
   background-color: white;
   padding: 12px 28px;
+  margin-left:3vw;
   font-size: 12px;
 }
 button {
@@ -67,4 +68,8 @@ p {
   font-family:Montserrat;
 
   background-color: #3D0351;
+}
+
+li {
+  color: white;
 }

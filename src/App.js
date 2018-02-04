@@ -3,8 +3,7 @@ import firebase from 'firebase';
 import './App.css';
 import Box from  './components/box.js';
 import URL from './components/url.js';
-import logo from './logo.svg';
-
+    var newData = [];
 class App extends Component {
   constructor() {
   super();
@@ -23,7 +22,7 @@ class App extends Component {
   this.handleSubmit = this.handleSubmit.bind(this);
   firebase.initializeApp(config);
 }
-  handleChange(e) {
+    handleChange(e) {
       this.setState({
         [e.target.name]: e.target.value
       });
@@ -31,28 +30,36 @@ class App extends Component {
 
     handleSubmit(e) {
     e.preventDefault();
-    const itemsRef = firebase.database().ref('items');
-    const item = {
-      URL: this.state.URL
-    }
-    itemsRef.push(item);
-    this.setState({
-      URL: item.URL
-    });
+    const itemsRef = firebase.database().ref('items/');
+    console.log(document.getElementById('urlForm').value);
+    itemsRef.push({      "URL": document.getElementById('urlForm').value});
+
   }
+
+
+      componentDidMount(e) {
+        var starCountRef = firebase.database().ref('items/');
+  starCountRef.on('value', function(snapshot) {
+    var data = snapshot.val();
+    var dataKeys = Object.keys(data);
+    for (var i = 0; i < dataKeys.length; i++) {
+        newData.push(data[dataKeys[i]].URL);
+    }
+  })
+  console.log(newData);
+      this.setState({URL: newData})
+      };
+
+
+
   // <form onSubmit={this.handleSubmit}>
   //                <input type="text" name="username" placeholder="URL" onChange={this.handleChange} value={this.state.URL} />
   //               <button>Save URL</button>
   //              </form>
 
-
-saveURL = (e) => {
-  var a = localStorage.setItem("url", e)
-}
-
   render() {
+
     return (
-      // stuff that doesn't
         <div className="App">
           <head>
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
@@ -61,30 +68,34 @@ saveURL = (e) => {
             <script type="text/javascript">
             {/* document.getElementById("").addEventListener("click", function(event) {
               event.preventDefault() */}
-              });
+            {/* }); */}
             </script>
           </head>
           <body>
+
             <div class="Title">
           <h1> FeelTheWave </h1>
           <p> A Free Alternative To Paid Music Streaming. All You Need Is A URL. </p>
         </div>
+
         <br/>
           <p>URL to Save : </p>
-          <form name="urlsaver" id="urlForm" onSubmit={this.handleSubmit}>
-            <input type="URL" name="URL" onChange={this.handleChange} value={this.state.URL} />
-            <div class="URL"><button onClick =  {() => {
+          <form name="urlsaver" onSubmit={this.handleSubmit}>
+            <input type="URL"  id="urlForm"  name="URL"/>
+            <div class="URL"><button onChange={this.handleChange} onClick =  {() => {
               this.setState({selectedState: "urls"});
-        //      firebase.database().ref('urls').push({"val":"dgfggffsg"})
-            }}> Hi </button></div>
+            }}> Save Song </button></div>
           </form>
 
-            {/* <p>{return this.localStorage.getItem("url");</p> */}
           <br/> <br/>
-              <div class="URL"></div>
+
+              <button onClick = {() => {this.setState({selectedState: "urls"})}}> Playlist </button>
+                <Box selectedState={this.state.selectedState} URL={this.state.URL}>
+
+              </Box>
           <br/> <br/>
-              <div class="URL"><button onClick =  {() => {this.setState({selectedState: "playlists"})}}> Your Playlists </button></div>
-              <Box selectedState={this.state.selectedState}></Box>
+              {/* <div class="URL"><button onClick =  {() => {this.setState({selectedState: "playlists"})}}> Your Playlists </button></div>
+                <Box></Box> */}
               <URL/>
             </body>
             </div>
