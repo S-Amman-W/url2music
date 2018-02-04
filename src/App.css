@@ -1,11 +1,57 @@
-div.App{
+.Title {
+  border: 3px solid white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  background-image: url("https://ak5.picdn.net/shutterstock/videos/13430915/thumb/1.jpg");
+  background-size: cover;
+  background-position: bottom center;
+  height: 80px;
+  width: 100%;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+
+.Title p {
+}
+button {
+  border-radius: 10px;
+  color: #84469A;
+  background-color: white;
+  padding: 12px 28px;
+  font-size: 12px;
+}
+button {
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #84469A;
+    color: white;
+}
+
+
+div.App {
   margin: auto 10px;
     width: auto;
     height: 2000px;
     background-color: #3D0351;
 }
 
-h1{
+h1 {
+  margin:1vw;
+
+  color:white;
+
+  font-family:Montserrat;
+
+  text-align: center;
+}
+
+h2 {
   margin:1vw;
 
   color:white;
@@ -13,18 +59,12 @@ h1{
   font-family:Montserrat;
 }
 
-h2{
-  margin:1vw;
-
-  color:white;
-
-  font-family:Montserrat;
-}
-
-p{
+p {
   color:white;
 
   margin:1vw;
 
   font-family:Montserrat;
+
+  background-color: #3D0351;
 }
